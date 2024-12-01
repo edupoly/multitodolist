@@ -1,0 +1,104 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "Board": [
+    {
+      "id": 1,
+      "title": "Accounts",
+      "todolist": [
+        {
+          "task": "passbook",
+          "stats": "todo",
+          "id": ""
+        },
+        {
+          "task": "goldloan stats",
+          "stats": "done",
+          "id": "t2"
+        },
+        {
+          "task": "fram loan",
+          "stats": "doing",
+          "id": "t3"
+        },
+        {
+          "task": "fghjkl",
+          "stats": "doing",
+          "id": "t4"
+        },
+        {
+          "task": "hgtyh",
+          "stats": "todo",
+          "id": "t5"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Institution",
+      "todolist": [
+        {
+          "task": "Payments",
+          "stats": "doing",
+          "id": "t1"
+        },
+        {
+          "task": "students'  data",
+          "stats": "done",
+          "id": "t2"
+        },
+        {
+          "task": "course datas",
+          "stats": "todo",
+          "id": "t3"
+        }
+      ]
+    },
+    {
+      "title": "veggies",
+      "todolist": [],
+      "id": 3
+    },
+    {
+      "title": "bicks",
+      "todolist": [
+        {
+          "task": "bmw",
+          "stats": "done",
+          "id": "t1"
+        },
+        {
+          "task": "r145",
+          "stats": "doing",
+          "id": "t2"
+        },
+        {
+          "task": "ktm",
+          "stats": "todo",
+          "id": "t3"
+        },
+        {
+          "task": "fz",
+          "stats": "todo",
+          "id": "t4"
+        }
+      ],
+      "id": 4
+    }
+  ]
+}
