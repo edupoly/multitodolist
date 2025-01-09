@@ -23,82 +23,36 @@
       "todolist": [
         {
           "task": "passbook",
-          "stats": "todo",
+          "stats": "doing",
           "id": ""
         },
         {
-          "task": "goldloan stats",
+          "task": "gold loan",
           "stats": "done",
-          "id": "t2"
-        },
-        {
-          "task": "fram loan",
-          "stats": "doing",
-          "id": "t3"
-        },
-        {
-          "task": "fghjkl",
-          "stats": "doing",
-          "id": "t4"
-        },
-        {
-          "task": "hgtyh",
-          "stats": "todo",
-          "id": "t5"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Institution",
-      "todolist": [
-        {
-          "task": "Payments",
-          "stats": "doing",
-          "id": "t1"
-        },
-        {
-          "task": "students'  data",
-          "stats": "done",
-          "id": "t2"
-        },
-        {
-          "task": "course datas",
-          "stats": "todo",
           "id": "t3"
         }
       ]
     },
     {
-      "title": "veggies",
-      "todolist": [],
-      "id": 3
-    },
-    {
-      "title": "bicks",
+      "title": "institute ",
       "todolist": [
         {
-          "task": "bmw",
+          "task": "students  data",
           "stats": "done",
           "id": "t1"
         },
         {
-          "task": "r145",
+          "task": "students payments",
           "stats": "doing",
           "id": "t2"
-        },
-        {
-          "task": "ktm",
-          "stats": "todo",
-          "id": "t3"
-        },
-        {
-          "task": "fz",
-          "stats": "todo",
-          "id": "t4"
         }
       ],
-      "id": 4
+      "id": 2
+    },
+    {
+      "title": "insurance ",
+      "todolist": [],
+      "id": 3
     }
   ]
 }

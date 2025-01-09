@@ -3,9 +3,9 @@ import { useCreateboardMutation,  useGettodolistQuery,  useLazyGettodolistQuery 
 import { Link } from "react-router-dom";
 
 function Slidebar(){
-                 const [change,setchange]  = useState(true)
-            const {isLoading,data} = useGettodolistQuery()
-            console.log(data)
+     const [change,setchange]  = useState()
+     const {isLoading,data} = useGettodolistQuery()
+     console.log(data)
     const [createfn]=useCreateboardMutation()
     const iref= useRef()
     const [lazyfn]=useLazyGettodolistQuery()
@@ -15,10 +15,12 @@ function Slidebar(){
        }
        function colorchange(p){
         setchange(p)
+        lazyfn()
+        console.log(p)
              
        }
     return(
-        <div  >
+        <div >
             <div className="m-2">
           <button type="button" class="btn btn-light  " style={{height:'50px',width:'200px'}} data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
                ADD TO BOARD  <i class="bi bi-plus-circle " style={{fontSize:'20px'}}></i></button>
@@ -52,7 +54,7 @@ function Slidebar(){
             !isLoading && data?.map((f)=>{
                 return (
                    <Link class="shadow" style={{textDecoration:"none",fontSize:'20px',color:'white',  }}   to={`/todos/${f.id}`}>
-                    <ul className=" m-2 rounded" style={{background:change==f.id ?'blue':''}} onClick={()=>{colorchange(f.id)}} >{f.title.toUpperCase()}</ul></Link> 
+                  <ul className=" m-2 rounded" style={{background:change==f.id ?'blue':''}} onClick={()=>{colorchange(f.id)}} >{f.title.toUpperCase()}</ul></Link> 
                 )
             })
           }

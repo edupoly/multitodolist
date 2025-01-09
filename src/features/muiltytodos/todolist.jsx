@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import {   json, Outlet, useParams } from "react-router-dom";
 import { useAddnewtodosMutation, useDeletetaskMutation, useGettodosbyidQuery, useLazyGettodosbyidQuery, useUpdatatodolistMutation } from "./boardapi";
-import Donetodos from "./done,complete";
 import Statestodos from "./doing,done,todos";
 function Todolisttodos(){
     const [index,setindex]=useState()
@@ -88,9 +87,9 @@ function Todolisttodos(){
                   <button className=" btn btn-primary text-white" style={{width:'150px'}} onClick={()=>xyz()} >ADD TASKS</button>
                 </div>
                <div className="d-flex  justify-content-center ">
-               <Statestodos tododata={data} type='todo' ></Statestodos>
-               <Statestodos tododata={data} type='doing'    ></Statestodos>
-               <Statestodos tododata={data} type='done'   ></Statestodos>
+               <Statestodos tododata={data} id={id}   type='todo' ></Statestodos>
+               <Statestodos tododata={data} id={id}   type='doing'    ></Statestodos>
+               <Statestodos tododata={data} id={id} type='done'   ></Statestodos>
               </div>
               </div>
 

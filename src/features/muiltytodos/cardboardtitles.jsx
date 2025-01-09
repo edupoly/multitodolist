@@ -1,18 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDeleteboardMutation, useLazyGettodosbyidQuery } from "./boardapi";
+import { useDeleteboardMutation, useLazyGettodolistQuery, useLazyGettodosbyidQuery } from "./boardapi";
 function Cardtodolist({todos}){
    console.log("toooooo",todos)
   const [deletefn]=useDeleteboardMutation()
-     const [lazyfn] =useLazyGettodosbyidQuery()
+     const [lazyfn] =useLazyGettodolistQuery()
  async function deleteobj(){
     console.log(todos.id)
    await  deletefn(todos.id)
-   lazyfn()
+   lazyfn().then((r)=>{
+      console.log(r)
+
+   })
   }
     return(
       
-        <div  className=" card border border-2 m-2 w-20 p-3 shadow-lg" style={{background:"#ececec"}}
+        <div  className=" card border border-2 m-3 ms-3 w-20 p-3 shadow-lg" style={{background:"#ececec"}}
          >
              <div className="d-flex justify-content-between  card-header bg-primary">
                 <b style={{color:"white"}}  > {todos.title?.toUpperCase()}</b> 
