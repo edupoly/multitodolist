@@ -30,6 +30,11 @@
           "task": "gold loan",
           "stats": "done",
           "id": "t3"
+        },
+        {
+          "task": "laksh",
+          "stats": "todo",
+          "id": "t3"
         }
       ]
     },
@@ -48,11 +53,6 @@
         }
       ],
       "id": 2
-    },
-    {
-      "title": "insurance ",
-      "todolist": [],
-      "id": 3
     }
   ]
 }
