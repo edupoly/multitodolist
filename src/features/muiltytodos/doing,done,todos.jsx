@@ -32,6 +32,7 @@ function Statestodos({ tododata, type,id }) {
     console.log(title, teeid)
 
     if (ev.target.tagName == "LI") {
+
       ev.target.parentElement.appendChild(document.getElementById(title))
     } else {
       ev.target.appendChild(document.getElementById(title))
@@ -75,38 +76,38 @@ function Statestodos({ tododata, type,id }) {
 
     <div className="m-2 p-2  ">
 
-      <div className="card fs-5 " style={{ width: "20rem", padding: "10px" }}>
+      <div className="card fs-5 " style={{ width: "20rem", padding: "10px",minHeight:"160px" }}>
         <div className="card-header bg-primary text-white p-3">
           Status : {type.toUpperCase()}
         </div>
 
-        <ul className="list-group list-group-flush  border border-2 h-100 " style={{ background: '#ececec' }} onDragOver={(ev) => { ev.preventDefault() }} onDrop={(ev) => { handleDrop(ev) }}>
+        <ul className="list-group list-group-flush  border border-2 h-100 " style={{ background: '#ececec',minHeight:"80px" }} onDragOver={(ev) => { ev.preventDefault() }} onDrop={(ev) => { handleDrop(ev) }}>
           {
             tododata?.todolist.map((r, i) => {
               if (r.stats !== type) {
                 return null
               }
               else {
-                return <li className="list-group-item m-2 p-3 d-flex shadow rounded text-dark justify-content-between fs-5" 
+                return <li key={i} className="list-group-item m-2 p-3 d-flex shadow rounded text-dark justify-content-between fs-5" 
                  id={`${r.task}${i}`} 
                 draggable="true" 
                 onDragStart={(ev) => handleDragStart(ev, r.id)} >
                   {r.task.toUpperCase()}
                   <div ><i className="bi bi-trash3 text-warning " onClick={() => deletetod(i)}  ></i>
                     {/* <i className="bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#exampleModal22" onClick={() => { edit(r.task, r.id) }} ></i> */}
-                    <div class="modal fade" id="exampleModal22" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel22" >Modal title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div className="modal fade" id="exampleModal22" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div className="modal-dialog">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel22" >Modal title</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body">
+                          <div className="modal-body">
                             <input type="text" id="d2" className="w-100" />
                           </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => { updatetodo() }}>Save changes</button>
+                          <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => { updatetodo() }}>Save changes</button>
                           </div>
                         </div>
                       </div>

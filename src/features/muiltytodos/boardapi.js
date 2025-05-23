@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const boardapi = createApi({
   reducerPath: 'board',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://multitodo-backend-app-production.up.railway.app/Board' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://multitodo-backend-app-production-a172.up.railway.app/Board' }),
   endpoints: (builder) => ({
     gettodolist: builder.query({
       query: () => `/`,

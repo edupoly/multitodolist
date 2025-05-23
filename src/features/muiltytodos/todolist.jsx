@@ -16,6 +16,7 @@ function Todolisttodos(){
         tmp.todolist.push({task:inp,stats:"todo",id:`t${tmp.todolist.length+1}`})
        await  addtodosfn(tmp)
             lazytodofn(id)
+            setinp('')
          
        }
    
@@ -83,7 +84,7 @@ function Todolisttodos(){
               <div >
                 <h1 className="text-center">{data?.title.toUpperCase()}</h1>
                 <div className="d-flex m-2 justify-content-center"  >
-                <input type="text" onChange={(e)=>setinp(e.target.value)} style={{width:"300px",borderRadius:'5px'}}  /> &nbsp; 
+                <input value={inp} type="text" onChange={(e)=>setinp(e.target.value)} style={{width:"300px",borderRadius:'5px'}}  /> &nbsp; 
                   <button className=" btn btn-primary text-white" style={{width:'150px'}} onClick={()=>xyz()} >ADD TASKS</button>
                 </div>
                <div className="d-flex  justify-content-center ">
