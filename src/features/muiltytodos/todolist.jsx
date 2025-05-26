@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import {   json, Outlet, useParams } from "react-router-dom";
 import { useAddnewtodosMutation, useDeletetaskMutation, useGettodosbyidQuery, useLazyGettodosbyidQuery, useUpdatatodolistMutation } from "./boardapi";
 import Statestodos from "./doing,done,todos";
+import './style.css'
+
 function Todolisttodos(){
     const [index,setindex]=useState()
     const [inp,setinp]=useState('')
@@ -81,13 +83,13 @@ function Todolisttodos(){
       //          </div>
               
               //  </div>   
-              <div >
+              <div className="container vh-100">
                 <h1 className="text-center">{data?.title.toUpperCase()}</h1>
                 <div className="d-flex m-2 justify-content-center"  >
                 <input value={inp} type="text" onChange={(e)=>setinp(e.target.value)} style={{width:"300px",borderRadius:'5px'}}  /> &nbsp; 
                   <button className=" btn btn-primary text-white" style={{width:'150px'}} onClick={()=>xyz()} >ADD TASKS</button>
                 </div>
-               <div className="d-flex  justify-content-center ">
+               <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4 row-gap-2 mt-4 mx-auto justify-content-center justify-content-md-center justify-content-lg-center px-2">
                <Statestodos tododata={data} id={id}   type='todo' ></Statestodos>
                <Statestodos tododata={data} id={id}   type='doing'    ></Statestodos>
                <Statestodos tododata={data} id={id} type='done'   ></Statestodos>

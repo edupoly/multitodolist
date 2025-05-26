@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAddnewtodosMutation, useDeletetaskMutation, useLazyGettodolistQuery, useLazyGettodosbyidQuery, useUpdatatodolistMutation } from "./boardapi";
+import './style.css'
 
 function Statestodos({ tododata, type,id }) {
   const [updatadragfn] = useAddnewtodosMutation()
@@ -31,9 +32,13 @@ function Statestodos({ tododata, type,id }) {
     var { title, teeid } = JSON.parse(ev.dataTransfer.getData("xyz"))
     console.log(title, teeid)
 
+    console.log(ev.target);
     if (ev.target.tagName == "LI") {
-
+      
       ev.target.parentElement.appendChild(document.getElementById(title))
+    }else if(ev.target.tagName == "SPAN"){
+      ev.target.parentElement.parentElement.appendChild(document.getElementById(title))
+
     } else {
       ev.target.appendChild(document.getElementById(title))
     }
@@ -74,25 +79,26 @@ function Statestodos({ tododata, type,id }) {
 
   return (
 
-    <div className="m-2 p-2  ">
+    <div className="col">
 
-      <div className="card fs-5 " style={{ width: "20rem", padding: "10px",minHeight:"160px" }}>
+      <div className="card fs-5" style={{  minHeight:"150px", boxShadow:'0 4px 8px rgba(0, 0, 0, 0.308)' }}>
         <div className="card-header bg-primary text-white p-3">
-          Status : {type.toUpperCase()}
+          <b>Status :</b> {type.toUpperCase()}
         </div>
 
-        <ul className="list-group list-group-flush  border border-2 h-100 " style={{ background: '#ececec',minHeight:"80px" }} onDragOver={(ev) => { ev.preventDefault() }} onDrop={(ev) => { handleDrop(ev) }}>
+        <ul className="list-group list-group-flush  border border-2 scrollableDiv" style={{ background: '#ececec',minHeight:"85px"}} onDragOver={(ev) => { ev.preventDefault() }} onDrop={(ev) => { handleDrop(ev) }}>
           {
             tododata?.todolist.map((r, i) => {
               if (r.stats !== type) {
                 return null
               }
               else {
-                return <li key={i} className="list-group-item m-2 p-3 d-flex shadow rounded text-dark justify-content-between fs-5" 
+                return <li key={i} className="list-group-item m-2 p-3 d-flex shadow rounded text-dark justify-content-between fs-5"
                  id={`${r.task}${i}`} 
                 draggable="true" 
-                onDragStart={(ev) => handleDragStart(ev, r.id)} >
-                  {r.task.toUpperCase()}
+                onDragStart={(ev) => handleDragStart(ev, r.id)} 
+                >
+                  <span className="text-truncate mb-0" title={r.task.toUpperCase()}>{r.task.toUpperCase()}</span>
                   <div ><i className="bi bi-trash3 text-warning " onClick={() => deletetod(i)}  ></i>
                     {/* <i className="bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#exampleModal22" onClick={() => { edit(r.task, r.id) }} ></i> */}
                     <div className="modal fade" id="exampleModal22" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
